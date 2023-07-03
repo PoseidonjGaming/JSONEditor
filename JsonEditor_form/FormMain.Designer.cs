@@ -28,151 +28,317 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.fichierToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.nouveauToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ouvrirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.treeViewJson = new System.Windows.Forms.TreeView();
-            this.lblFieldName = new System.Windows.Forms.Label();
-            this.txtBoxFieldName = new System.Windows.Forms.TextBox();
-            this.txtBoxFieldValue = new System.Windows.Forms.TextBox();
-            this.lblFieldValue = new System.Windows.Forms.Label();
-            this.txtBoxJSON = new System.Windows.Forms.TextBox();
-            this.btnSubmit = new System.Windows.Forms.Button();
-            this.menuStrip1.SuspendLayout();
-            this.SuspendLayout();
+            menuStrip1 = new MenuStrip();
+            nouveauToolStripMenuItem = new ToolStripMenuItem();
+            ouvrirToolStripMenuItem = new ToolStripMenuItem();
+            saveToolStripMenuItem = new ToolStripMenuItem();
+            treeViewJson = new TreeView();
+            lblFieldName = new Label();
+            txtBoxFieldName = new TextBox();
+            txtBoxFieldValue = new TextBox();
+            lblFieldValue = new Label();
+            txtBoxJSON = new TextBox();
+            btnSubmit = new Button();
+            gpBoxProperty = new GroupBox();
+            btnDelNode = new Button();
+            btnAddNode = new Button();
+            gpType = new GroupBox();
+            rdbProperty = new RadioButton();
+            rdbRawValue = new RadioButton();
+            rdbObject = new RadioButton();
+            gpbPattern = new GroupBox();
+            lblPatternName = new Label();
+            txtBoxPatternName = new TextBox();
+            lstBoxPattern = new ListBox();
+            btnLoadPattern = new Button();
+            btnDelPattern = new Button();
+            btnAddPattern = new Button();
+            menuStrip1.SuspendLayout();
+            gpBoxProperty.SuspendLayout();
+            gpType.SuspendLayout();
+            gpbPattern.SuspendLayout();
+            SuspendLayout();
             // 
             // menuStrip1
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fichierToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(866, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // fichierToolStripMenuItem
-            // 
-            this.fichierToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.nouveauToolStripMenuItem,
-            this.ouvrirToolStripMenuItem,
-            this.saveToolStripMenuItem});
-            this.fichierToolStripMenuItem.Name = "fichierToolStripMenuItem";
-            this.fichierToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
-            this.fichierToolStripMenuItem.Text = "Fichier";
+            menuStrip1.Items.AddRange(new ToolStripItem[] { nouveauToolStripMenuItem, ouvrirToolStripMenuItem, saveToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(866, 24);
+            menuStrip1.TabIndex = 0;
+            menuStrip1.Text = "menuStrip1";
             // 
             // nouveauToolStripMenuItem
             // 
-            this.nouveauToolStripMenuItem.Name = "nouveauToolStripMenuItem";
-            this.nouveauToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
-            this.nouveauToolStripMenuItem.Text = "Nouveau";
+            nouveauToolStripMenuItem.Name = "nouveauToolStripMenuItem";
+            nouveauToolStripMenuItem.Size = new Size(67, 20);
+            nouveauToolStripMenuItem.Text = "Nouveau";
+            nouveauToolStripMenuItem.Click += nouveauToolStripMenuItem_Click;
             // 
             // ouvrirToolStripMenuItem
             // 
-            this.ouvrirToolStripMenuItem.Name = "ouvrirToolStripMenuItem";
-            this.ouvrirToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
-            this.ouvrirToolStripMenuItem.Text = "Ouvrir";
-            this.ouvrirToolStripMenuItem.Click += new System.EventHandler(this.ouvrirToolStripMenuItem_Click);
+            ouvrirToolStripMenuItem.Name = "ouvrirToolStripMenuItem";
+            ouvrirToolStripMenuItem.Size = new Size(52, 20);
+            ouvrirToolStripMenuItem.Text = "Ouvrir";
+            ouvrirToolStripMenuItem.Click += ouvrirToolStripMenuItem_Click;
             // 
             // saveToolStripMenuItem
             // 
-            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
-            this.saveToolStripMenuItem.Text = "Save";
-            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            saveToolStripMenuItem.Size = new Size(43, 20);
+            saveToolStripMenuItem.Text = "Save";
+            saveToolStripMenuItem.Click += saveToolStripMenuItem_Click;
             // 
             // treeViewJson
             // 
-            this.treeViewJson.Location = new System.Drawing.Point(12, 27);
-            this.treeViewJson.Name = "treeViewJson";
-            this.treeViewJson.Size = new System.Drawing.Size(232, 411);
-            this.treeViewJson.TabIndex = 1;
-            this.treeViewJson.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewJson_AfterSelect);
+            treeViewJson.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            treeViewJson.HideSelection = false;
+            treeViewJson.Location = new Point(12, 27);
+            treeViewJson.Name = "treeViewJson";
+            treeViewJson.Size = new Size(272, 411);
+            treeViewJson.TabIndex = 1;
+            treeViewJson.AfterSelect += treeViewJson_AfterSelect;
             // 
             // lblFieldName
             // 
-            this.lblFieldName.AutoSize = true;
-            this.lblFieldName.Location = new System.Drawing.Point(250, 92);
-            this.lblFieldName.Name = "lblFieldName";
-            this.lblFieldName.Size = new System.Drawing.Size(97, 15);
-            this.lblFieldName.TabIndex = 2;
-            this.lblFieldName.Text = "Nom du champ: ";
+            lblFieldName.AutoSize = true;
+            lblFieldName.Location = new Point(6, 19);
+            lblFieldName.Name = "lblFieldName";
+            lblFieldName.Size = new Size(97, 15);
+            lblFieldName.TabIndex = 2;
+            lblFieldName.Text = "Nom du champ: ";
             // 
             // txtBoxFieldName
             // 
-            this.txtBoxFieldName.Location = new System.Drawing.Point(353, 89);
-            this.txtBoxFieldName.Name = "txtBoxFieldName";
-            this.txtBoxFieldName.Size = new System.Drawing.Size(185, 23);
-            this.txtBoxFieldName.TabIndex = 3;
+            txtBoxFieldName.Location = new Point(114, 16);
+            txtBoxFieldName.Name = "txtBoxFieldName";
+            txtBoxFieldName.Size = new Size(168, 23);
+            txtBoxFieldName.TabIndex = 3;
             // 
             // txtBoxFieldValue
             // 
-            this.txtBoxFieldValue.Location = new System.Drawing.Point(353, 118);
-            this.txtBoxFieldValue.Name = "txtBoxFieldValue";
-            this.txtBoxFieldValue.Size = new System.Drawing.Size(185, 23);
-            this.txtBoxFieldValue.TabIndex = 5;
+            txtBoxFieldValue.Location = new Point(114, 45);
+            txtBoxFieldValue.Name = "txtBoxFieldValue";
+            txtBoxFieldValue.Size = new Size(168, 23);
+            txtBoxFieldValue.TabIndex = 5;
             // 
             // lblFieldValue
             // 
-            this.lblFieldValue.AutoSize = true;
-            this.lblFieldValue.Location = new System.Drawing.Point(250, 121);
-            this.lblFieldValue.Name = "lblFieldValue";
-            this.lblFieldValue.Size = new System.Drawing.Size(102, 15);
-            this.lblFieldValue.TabIndex = 4;
-            this.lblFieldValue.Text = "Valeur du champ: ";
+            lblFieldValue.AutoSize = true;
+            lblFieldValue.Location = new Point(6, 48);
+            lblFieldValue.Name = "lblFieldValue";
+            lblFieldValue.Size = new Size(102, 15);
+            lblFieldValue.TabIndex = 4;
+            lblFieldValue.Text = "Valeur du champ: ";
             // 
             // txtBoxJSON
             // 
-            this.txtBoxJSON.AcceptsReturn = true;
-            this.txtBoxJSON.AcceptsTab = true;
-            this.txtBoxJSON.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtBoxJSON.Location = new System.Drawing.Point(544, 27);
-            this.txtBoxJSON.Multiline = true;
-            this.txtBoxJSON.Name = "txtBoxJSON";
-            this.txtBoxJSON.Size = new System.Drawing.Size(310, 411);
-            this.txtBoxJSON.TabIndex = 6;
+            txtBoxJSON.AcceptsReturn = true;
+            txtBoxJSON.AcceptsTab = true;
+            txtBoxJSON.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            txtBoxJSON.Location = new Point(584, 27);
+            txtBoxJSON.Multiline = true;
+            txtBoxJSON.Name = "txtBoxJSON";
+            txtBoxJSON.ScrollBars = ScrollBars.Vertical;
+            txtBoxJSON.Size = new Size(274, 411);
+            txtBoxJSON.TabIndex = 6;
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(463, 147);
-            this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(75, 23);
-            this.btnSubmit.TabIndex = 7;
-            this.btnSubmit.Text = "Valider";
-            this.btnSubmit.UseVisualStyleBackColor = true;
+            btnSubmit.Location = new Point(207, 142);
+            btnSubmit.Name = "btnSubmit";
+            btnSubmit.Size = new Size(75, 23);
+            btnSubmit.TabIndex = 7;
+            btnSubmit.Text = "Valider";
+            btnSubmit.UseVisualStyleBackColor = true;
+            btnSubmit.Click += btnSubmit_Click;
+            // 
+            // gpBoxProperty
+            // 
+            gpBoxProperty.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            gpBoxProperty.Controls.Add(btnDelNode);
+            gpBoxProperty.Controls.Add(btnAddNode);
+            gpBoxProperty.Controls.Add(gpType);
+            gpBoxProperty.Controls.Add(lblFieldName);
+            gpBoxProperty.Controls.Add(btnSubmit);
+            gpBoxProperty.Controls.Add(txtBoxFieldName);
+            gpBoxProperty.Controls.Add(lblFieldValue);
+            gpBoxProperty.Controls.Add(txtBoxFieldValue);
+            gpBoxProperty.Location = new Point(290, 27);
+            gpBoxProperty.Name = "gpBoxProperty";
+            gpBoxProperty.Size = new Size(288, 171);
+            gpBoxProperty.TabIndex = 8;
+            gpBoxProperty.TabStop = false;
+            gpBoxProperty.Text = "Propriété";
+            // 
+            // btnDelNode
+            // 
+            btnDelNode.Location = new Point(126, 142);
+            btnDelNode.Name = "btnDelNode";
+            btnDelNode.Size = new Size(75, 23);
+            btnDelNode.TabIndex = 10;
+            btnDelNode.Text = "Supprimer";
+            btnDelNode.UseVisualStyleBackColor = true;
+            // 
+            // btnAddNode
+            // 
+            btnAddNode.Location = new Point(45, 142);
+            btnAddNode.Name = "btnAddNode";
+            btnAddNode.Size = new Size(75, 23);
+            btnAddNode.TabIndex = 9;
+            btnAddNode.Text = "Ajouter";
+            btnAddNode.UseVisualStyleBackColor = true;
+            btnAddNode.Click += btnAdd_Click;
+            // 
+            // gpType
+            // 
+            gpType.Controls.Add(rdbProperty);
+            gpType.Controls.Add(rdbRawValue);
+            gpType.Controls.Add(rdbObject);
+            gpType.Location = new Point(6, 74);
+            gpType.Name = "gpType";
+            gpType.Size = new Size(276, 62);
+            gpType.TabIndex = 8;
+            gpType.TabStop = false;
+            gpType.Text = "Type";
+            // 
+            // rdbProperty
+            // 
+            rdbProperty.AutoSize = true;
+            rdbProperty.CheckAlign = ContentAlignment.MiddleRight;
+            rdbProperty.Location = new Point(152, 22);
+            rdbProperty.Name = "rdbProperty";
+            rdbProperty.Size = new Size(73, 19);
+            rdbProperty.TabIndex = 2;
+            rdbProperty.TabStop = true;
+            rdbProperty.Text = "Propriété";
+            rdbProperty.UseVisualStyleBackColor = true;
+            // 
+            // rdbRawValue
+            // 
+            rdbRawValue.AutoSize = true;
+            rdbRawValue.CheckAlign = ContentAlignment.MiddleRight;
+            rdbRawValue.Location = new Point(68, 22);
+            rdbRawValue.Name = "rdbRawValue";
+            rdbRawValue.Size = new Size(78, 19);
+            rdbRawValue.TabIndex = 1;
+            rdbRawValue.TabStop = true;
+            rdbRawValue.Text = "Raw Value";
+            rdbRawValue.UseVisualStyleBackColor = true;
+            // 
+            // rdbObject
+            // 
+            rdbObject.AutoSize = true;
+            rdbObject.CheckAlign = ContentAlignment.MiddleRight;
+            rdbObject.Location = new Point(8, 22);
+            rdbObject.Name = "rdbObject";
+            rdbObject.Size = new Size(54, 19);
+            rdbObject.TabIndex = 0;
+            rdbObject.TabStop = true;
+            rdbObject.Text = "Objet";
+            rdbObject.UseVisualStyleBackColor = true;
+            // 
+            // gpbPattern
+            // 
+            gpbPattern.Controls.Add(lblPatternName);
+            gpbPattern.Controls.Add(txtBoxPatternName);
+            gpbPattern.Controls.Add(lstBoxPattern);
+            gpbPattern.Controls.Add(btnLoadPattern);
+            gpbPattern.Controls.Add(btnDelPattern);
+            gpbPattern.Controls.Add(btnAddPattern);
+            gpbPattern.Location = new Point(290, 204);
+            gpbPattern.Name = "gpbPattern";
+            gpbPattern.Size = new Size(288, 234);
+            gpbPattern.TabIndex = 9;
+            gpbPattern.TabStop = false;
+            gpbPattern.Text = "Pattern";
+            // 
+            // lblPatternName
+            // 
+            lblPatternName.AutoSize = true;
+            lblPatternName.Location = new Point(8, 170);
+            lblPatternName.Name = "lblPatternName";
+            lblPatternName.Size = new Size(95, 15);
+            lblPatternName.TabIndex = 10;
+            lblPatternName.Text = "Nom du pattern:";
+            // 
+            // txtBoxPatternName
+            // 
+            txtBoxPatternName.Location = new Point(109, 167);
+            txtBoxPatternName.Name = "txtBoxPatternName";
+            txtBoxPatternName.Size = new Size(134, 23);
+            txtBoxPatternName.TabIndex = 4;
+            // 
+            // lstBoxPattern
+            // 
+            lstBoxPattern.FormattingEnabled = true;
+            lstBoxPattern.ItemHeight = 15;
+            lstBoxPattern.Location = new Point(8, 22);
+            lstBoxPattern.Name = "lstBoxPattern";
+            lstBoxPattern.Size = new Size(276, 139);
+            lstBoxPattern.TabIndex = 3;
+            // 
+            // btnLoadPattern
+            // 
+            btnLoadPattern.Location = new Point(168, 196);
+            btnLoadPattern.Name = "btnLoadPattern";
+            btnLoadPattern.Size = new Size(75, 23);
+            btnLoadPattern.TabIndex = 2;
+            btnLoadPattern.Text = "Charger";
+            btnLoadPattern.UseVisualStyleBackColor = true;
+            btnLoadPattern.Click += btnLoadPattern_Click;
+            // 
+            // btnDelPattern
+            // 
+            btnDelPattern.Location = new Point(87, 196);
+            btnDelPattern.Name = "btnDelPattern";
+            btnDelPattern.Size = new Size(75, 23);
+            btnDelPattern.TabIndex = 1;
+            btnDelPattern.Text = "Supprimer";
+            btnDelPattern.UseVisualStyleBackColor = true;
+            btnDelPattern.Click += btnDelPattern_Click;
+            // 
+            // btnAddPattern
+            // 
+            btnAddPattern.Location = new Point(6, 196);
+            btnAddPattern.Name = "btnAddPattern";
+            btnAddPattern.Size = new Size(75, 23);
+            btnAddPattern.TabIndex = 0;
+            btnAddPattern.Text = "Ajouter";
+            btnAddPattern.UseVisualStyleBackColor = true;
+            btnAddPattern.Click += btnAddPattern_Click;
             // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(866, 450);
-            this.Controls.Add(this.btnSubmit);
-            this.Controls.Add(this.txtBoxJSON);
-            this.Controls.Add(this.txtBoxFieldValue);
-            this.Controls.Add(this.lblFieldValue);
-            this.Controls.Add(this.txtBoxFieldName);
-            this.Controls.Add(this.lblFieldName);
-            this.Controls.Add(this.treeViewJson);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
-            this.Name = "FormMain";
-            this.Text = "FormMain";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(866, 450);
+            Controls.Add(gpbPattern);
+            Controls.Add(gpBoxProperty);
+            Controls.Add(txtBoxJSON);
+            Controls.Add(treeViewJson);
+            Controls.Add(menuStrip1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MainMenuStrip = menuStrip1;
+            MaximizeBox = false;
+            Name = "FormMain";
+            Text = "FormMain";
+            Load += FormMain_Load;
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
+            gpBoxProperty.ResumeLayout(false);
+            gpBoxProperty.PerformLayout();
+            gpType.ResumeLayout(false);
+            gpType.PerformLayout();
+            gpbPattern.ResumeLayout(false);
+            gpbPattern.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private MenuStrip menuStrip1;
-        private ToolStripMenuItem fichierToolStripMenuItem;
-        private ToolStripMenuItem nouveauToolStripMenuItem;
-        private ToolStripMenuItem ouvrirToolStripMenuItem;
-        private ToolStripMenuItem saveToolStripMenuItem;
         private TreeView treeViewJson;
         private Label lblFieldName;
         private TextBox txtBoxFieldName;
@@ -180,5 +346,22 @@
         private Label lblFieldValue;
         private TextBox txtBoxJSON;
         private Button btnSubmit;
+        private GroupBox gpBoxProperty;
+        private GroupBox gpType;
+        private RadioButton rdbRawValue;
+        private RadioButton rdbObject;
+        private Button btnAddNode;
+        private RadioButton rdbProperty;
+        private ToolStripMenuItem nouveauToolStripMenuItem;
+        private ToolStripMenuItem ouvrirToolStripMenuItem;
+        private ToolStripMenuItem saveToolStripMenuItem;
+        private Button btnDelNode;
+        private GroupBox gpbPattern;
+        private Button btnAddPattern;
+        private ListBox lstBoxPattern;
+        private Button btnLoadPattern;
+        private Button btnDelPattern;
+        private Label lblPatternName;
+        private TextBox txtBoxPatternName;
     }
 }
