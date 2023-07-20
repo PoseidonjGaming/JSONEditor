@@ -294,6 +294,7 @@ namespace JsonEditor_form
         private void refreshPattern()
         {
             lstBoxPattern.Items.Clear();
+            MessageBox.Show(Utils.Patterns.Count.ToString());
             Utils.Patterns.ForEach(e => lstBoxPattern.Items.Add(e.Name));
         }
 
@@ -304,7 +305,20 @@ namespace JsonEditor_form
                 treeViewJson.Nodes.Clear();
                 jsonToTreeView(Utils.GetPatternById(lstBoxPattern.SelectedIndex).Json);
             }
-           
+
+        }
+
+        private void btnDelNode_Click(object sender, EventArgs e)
+        {
+            if (treeViewJson.SelectedNode != null)
+            {
+                treeViewJson.Nodes.Remove(treeViewJson.SelectedNode);
+            }
+        }
+
+        private void txtBoxJSON_TextChanged(object sender, EventArgs e)
+        {
+            jsonToTreeView(txtBoxJSON.Text);
         }
     }
 }

@@ -7,7 +7,7 @@ namespace JsonEditor_form
     {
         public static List<Pattern> Patterns
         {
-            get => Settings.Default.Patterns?? new List<Pattern>();
+            get => Settings.Default.Patterns = Patterns;
             set => Settings.Default.Patterns = value;
         }
 
